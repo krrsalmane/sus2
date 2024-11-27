@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-
+struct date {
+    int day;
+    int month;
+    int year;
+};
 typedef struct
 {
     char name[100];
-    int deadline;
     char discription[255];
     char priority[20];
+    struct date deadline;
 } taches;
 
 taches P[100];
@@ -15,8 +19,12 @@ int run = 0;
 void add() {
     printf("Enter the task name: ");
     scanf(" %[^\n]", P[run].name);
-    printf("Enter the dealine: ");
-    scanf("%d", &P[run].deadline);
+    printf("Enter the day: ");
+    scanf("%d", &P[run].deadline.day);
+    printf("enter month: ");
+    scanf("%d", &P[run].deadline.month);
+    printf("enter year: ");
+    scanf("%d", &P[run].deadline.year);
     printf("Enter the description: ");
     scanf(" %[^\n]", P[run].discription);
     printf("Enter priority (high or low): ");
@@ -27,10 +35,13 @@ void add() {
 void display() {
     int i;
     for (i = 0; i < run; i++) {
-        printf("Name: %s\n", P[i].name);
-        printf("Deadline: %d\n", P[i].deadline);
+        printf("\n-----------------------\n");
+        printf("Name       : %s\n", P[i].name);
         printf("Description: %s\n", P[i].discription);
-        printf("Priority: %s\n\n", P[i].priority);
+        printf("Priority   : %s\n", P[i].priority);
+        printf("date       : %d/%d/%d", P[i].deadline.day, P[i].deadline.month, P[i].deadline.year);
+        printf("\n-----------------------\n");
+
     }
 }
 
