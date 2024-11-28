@@ -58,8 +58,12 @@ void modify() {
 
     printf("Enter the new name: ");
     scanf(" %[^\n]", P[mo].name);
-    printf("Enter new deadline: ");
-    scanf("%d", &P[mo].deadline);
+    printf("Enter the new day: ");
+    scanf("%d", &P[mo].deadline.day);
+    printf("enter new month: ");
+    scanf("%d", &P[mo].deadline.month);
+    printf("enter new year: ");
+    scanf("%d", &P[mo].deadline.year);
     printf("Enter the new description: ");
     scanf(" %[^\n12]", P[mo].discription);
     printf("Enter the new priority: ");
@@ -95,7 +99,9 @@ void filter() {
     for (i = 0; i < run; i++) {
         if (strcmp(P[i].priority, filter) == 0) {  // Only print tasks with matching priority
             printf("Name: %s\n", P[i].name);
-            printf("Deadline: %d\n", P[i].deadline);
+            printf("day: %d\n", &P[i].deadline.day);
+            printf("month: %d\n", &P[i].deadline.month);
+            printf("year: %d\n", &P[i].deadline.year);
             printf("Description: %s\n", P[i].discription);
             printf("Priority: %s\n\n", P[i].priority);
         }
